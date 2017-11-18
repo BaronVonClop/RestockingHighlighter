@@ -6,7 +6,21 @@ var redArray = [];
 var blankArray =[];
 
 function assembleScript(){
-    var greenText = $('#greenBox').val();
+    //Take the user's input and apply it to the arrays, one for each color.
+    greenArray = $('#greenBox').val().split("\n")
+    yellowArray = $('#yellowBox').val().split("\n")
+    redArray = $('#redBox').val().split("\n")
+    blankArray = $('#blankBox').val().split("\n")
+    var g = 0;
+    //Remove junk from user input. If it isn't an item name, delete it.
+    while (g < greenArray.length) {
+        if(greenArray[g].search("NP") !== -1 || greenArray[g].search("  ") !== -1){
+            console.log("Deleting: " + greenArray[g] + " from greenArray");
+            greenArray.splice(g, 1);
+        } else {
+            g++;
+        }
+    }
 
     assembleArray.push("// ==UserScript==");
     assembleArray.push("// @name         Restocking Profit Highlighter (" + storeChoice + ")");
