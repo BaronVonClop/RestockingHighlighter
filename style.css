@@ -1,0 +1,35 @@
+.headtitle{
+    text-align: center;
+}
+
+.leftbox{
+    width: 800px;
+    height: 900px;
+    border: 2px solid black;
+    position: absolute;
+    left: 0%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.rightbox{
+    width: 594px;
+    height: 900px;
+    border: 2px solid black;
+    position: absolute;
+    right: 0%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.container{
+    width: 1400px;
+    position: fixed;
+    left: 50%;
+    margin-left: -700px;
+}
+
+.colorinputbox{
+    width: 300px;
+    height: 200px;
+}
