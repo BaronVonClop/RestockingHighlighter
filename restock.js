@@ -7,6 +7,7 @@ var blankArray =[];
 var rightCarrat = ">";
 
 function assembleScript(){
+    $("#codetext").val("")
     //Take the user's input and apply it to the arrays, one for each color.
     greenArray = $('#greenBox').val().split("\n").filter(Boolean);
     yellowArray = $('#yellowBox').val().split("\n").filter(Boolean);
@@ -17,6 +18,9 @@ function assembleScript(){
     removeJunk(greenArray); removeJunk(yellowArray); removeJunk(redArray); removeJunk(blankArray);
 
     //Create the script.
+    //Is there a better way to do this? I am sure there is.
+    //Do I know what it is?
+    //Fuck no.
     assembleArray.push("// ==UserScript==");
     assembleArray.push("// @name         Restocking Profit Highlighter (" + storeChoice + ")");
     assembleArray.push("// @namespace    http://neopets.lipomancer.com/");
@@ -34,15 +38,19 @@ function assembleScript(){
     assembleArray.push("           'span.green { background-color: #000000; color: #23ea11;} ' +");
     assembleArray.push("           'span.blank { background-color: #ffffff; color: #ffffff} ' );");
     assembleArray.push("    defwords([");
+    //Fare thee well
     scriptArrayAssembly(blankArray);
     assembleArray.push("        ], \"blank\");");
     assembleArray.push("    defwords([");
+    //For it's Arkansas killin' time
     scriptArrayAssembly(redArray);
     assembleArray.push("                ], \"red\");");
     assembleArray.push("    defwords([");
+    //And this time of year
     scriptArrayAssembly(yellowArray);
     assembleArray.push("         ], \"yellow\");");
     assembleArray.push("    defwords([");
+    //Is a favorite of mine
     scriptArrayAssembly(greenArray);
     assembleArray.push("         ], \"green\");");
     assembleArray.push("    function defwords(words, which_class) {");
