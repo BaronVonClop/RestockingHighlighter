@@ -33,3 +33,12 @@
     width: 300px;
     height: 200px;
 }
+
+.faq{
+    display: none;
+}
+
+.codetext{
+    width: 550px;
+    height: 550px;
+}
